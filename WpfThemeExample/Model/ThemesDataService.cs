@@ -47,10 +47,13 @@ namespace WpfThemeExample.Model
 
         private void scanDisk(string relativePath, string fileEnding = "Theme.xaml")
         {
-            var themeFiles = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + relativePath, "*Theme.xaml", SearchOption.AllDirectories);
-            foreach (var fileName in themeFiles)
+            if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + relativePath))
             {
-                themes_.Add(new Theme() { Name = getNameFromPath(fileName, '\\'), Path = fileName });
+                var themeFiles = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + relativePath, "*Theme.xaml", SearchOption.AllDirectories);
+                foreach (var fileName in themeFiles)
+                {
+                    themes_.Add(new Theme() { Name = getNameFromPath(fileName, '\\'), Path = fileName });
+                }
             }
         }
 
