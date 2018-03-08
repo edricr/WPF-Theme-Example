@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("WpfThemeExample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Edric Rominger")]
 [assembly: AssemblyProduct("WpfThemeExample")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

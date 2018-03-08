@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfThemeExample.ViewModel;
 
 namespace WpfThemeExample
 {
@@ -23,6 +24,7 @@ namespace WpfThemeExample
         public MainWindow()
         {
             InitializeComponent();
+            Closing += (s, e) => ViewModelLocator.Cleanup();
         }
     }
 }

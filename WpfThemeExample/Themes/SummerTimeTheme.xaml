@@ -1,0 +1,71 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="GeneralTextColor" Color="White"/>
+    <SolidColorBrush x:Key="MenuTextColor" Color="#FFCBCBCB"/>
+
+    <SolidColorBrush x:Key="BackgroundColor" Color="#FF576560"/>
+    <SolidColorBrush x:Key="BackgroundDarkColor" Color="#FF2B2719"/>
+    <SolidColorBrush x:Key="EditBoxBackgroundColor" Color="#FF2C3230"/>
+    <SolidColorBrush x:Key="HeaderColor" Color="#BF7E794B"/>
+
+    <SolidColorBrush x:Key="SplitterColor" Color="DarkGray"/>
+    <SolidColorBrush x:Key="BorderGeneralColor" Color="#FF8B5555"/>
+
+    <SolidColorBrush x:Key="SelectedButtonColor" Color="#FF2C2C2C"/>
+
+    <SolidColorBrush x:Key="ScrollBarArrowPressedColor" Color="#FF272727"/>
+    <SolidColorBrush x:Key="ScrollBarArrowColor" Color="#FFC8C3BF"/>
+    <SolidColorBrush x:Key="ScrollBarThumbColor" Color="#FF64706C"/>
+    <SolidColorBrush x:Key="ScrollBarTrackColor" Color="#FF404F49"/>
+
+    <SolidColorBrush x:Key="ProgressBarFillColor" Color="#FF935347"/>
+
+    <SolidColorBrush x:Key="ToolTipTextColor" Color="#FFE8D4BB"/>
+    <SolidColorBrush x:Key="ToolTipBorderColor" Color="#FF6C7F78"/>
+    <SolidColorBrush x:Key="ToolTipBackgroundColor" Color="#DF3C4541"/>
+
+    <SolidColorBrush x:Key="SelectedBorderColor" Color="Yellow"/>
+
+    <!--Button-->
+    <Style x:Key="MyButton" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="MainGrid">
+                        <Border x:Name="OutsideBorder"
+                                BorderThickness="2"
+                                CornerRadius="2">
+                            <Border.BorderBrush>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Rectangle StrokeDashArray="4 2" Stroke="{DynamicResource BorderGeneralColor}"
+                                                   StrokeThickness="2"
+                                                   Width="{Binding ElementName=OutsideBorder, Path=ActualWidth}"
+                                                   Height="{Binding ElementName=OutsideBorder, Path=ActualHeight}"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.BorderBrush>
+                        </Border>
+
+                        <Grid Margin="4" VerticalAlignment="Center">
+                            <ContentControl Content="{TemplateBinding Content}"/>
+                        </Grid>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="OutsideBorder" Property="Background" Value="{DynamicResource SelectedButtonColor}" />
+                            <Setter TargetName="OutsideBorder" Property="BorderBrush" Value="{DynamicResource SelectedBorderColor}"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="MainGrid" Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

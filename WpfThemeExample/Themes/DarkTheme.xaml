@@ -1,0 +1,77 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="GeneralTextColor" Color="White"/>
+    <SolidColorBrush x:Key="MenuTextColor" Color="#FFCBCBCB"/>
+
+    <SolidColorBrush x:Key="BackgroundColor" Color="#FF414750"/>
+    <SolidColorBrush x:Key="BackgroundDarkColor" Color="#FF353941"/>
+    <SolidColorBrush x:Key="EditBoxBackgroundColor" Color="#FF161821"/>
+    <SolidColorBrush x:Key="HeaderColor" Color="#BF232323"/>
+
+    <SolidColorBrush x:Key="SplitterColor" Color="DarkGray"/>
+    <SolidColorBrush x:Key="BorderGeneralColor" Color="DarkTurquoise"/>
+
+    <SolidColorBrush x:Key="SelectedButtonColor" Color="#FF393D43"/>
+
+    <SolidColorBrush x:Key="ScrollBarThumbColor" Color="#FF5E6571"/>
+    <SolidColorBrush x:Key="ScrollBarTrackColor" Color="#FF373B42"/>
+    <SolidColorBrush x:Key="ScrollBarArrowColor" Color="#FFC8C3BF"/>
+    <SolidColorBrush x:Key="ScrollBarArrowPressedColor" Color="#FF272727"/>
+
+    <SolidColorBrush x:Key="ProgressBarFillColor" Color="#FFDC7028"/>
+
+    <SolidColorBrush x:Key="ToolTipTextColor" Color="#FFF3E1C2"/>
+    <SolidColorBrush x:Key="ToolTipBackgroundColor" Color="#DF353941"/>
+    <SolidColorBrush x:Key="ToolTipBorderColor" Color="#FF1A130F"/>
+
+    <SolidColorBrush x:Key="SelectedBorderColor" Color="DarkRed"/>
+
+    <!--TextBlock-->
+    <Style x:Key="MyTextBlock" TargetType="TextBlock">
+        <Setter Property="FontStyle" Value="Italic"/>
+        <Setter Property="Foreground" Value="Beige"/>
+    </Style>
+
+    <!--Button-->
+    <Style x:Key="MyButton" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid x:Name="MainGrid">
+                        <Border x:Name="OutsideBorder"
+                                BorderThickness="2"
+                                CornerRadius="2">
+                            <Border.BorderBrush>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Rectangle StrokeDashArray="4 2" Stroke="{DynamicResource BorderGeneralColor}"
+                                                   StrokeThickness="2"
+                                                   Width="{Binding ElementName=OutsideBorder, Path=ActualWidth}"
+                                                   Height="{Binding ElementName=OutsideBorder, Path=ActualHeight}"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.BorderBrush>
+                        </Border>
+
+                        <Grid Margin="4" VerticalAlignment="Center">
+                            <ContentControl Content="{TemplateBinding Content}"/>
+                        </Grid>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="OutsideBorder" Property="Background" Value="{DynamicResource SelectedButtonColor}" />
+                            <Setter TargetName="OutsideBorder" Property="BorderBrush" Value="{DynamicResource SelectedBorderColor}"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="MainGrid" Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
